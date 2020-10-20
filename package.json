@@ -4,9 +4,15 @@
   "main": "app.js",
   "author": "Amit Zaman",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
   "dependencies": {
     "apollo-server": "^2.18.2",
     "axios": "^0.20.0",
     "graphql": "^15.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
