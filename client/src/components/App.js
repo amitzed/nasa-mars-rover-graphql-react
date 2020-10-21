@@ -23,11 +23,16 @@ const GET_PHOTOS = gql`
 `;
 
 const Photo = ({ photo: { camera: {full_name, rover_id}, img_src, rover: {name, status} } }) => (
-  <div>
-    <h2><em>Camera:&nbsp;</em>{full_name}</h2>
-    <h5>Rover Name: {name}</h5>
-    <img src={img_src} alt="Pic" />
+
+
+  <div className="card photo-wrapper" style={{width: '18rem'}}>
+    <a href={img_src} target="_blank" className="image-link"><img src={img_src} alt="Rover Image" className="card-img-top" /></a>
+    <div className="card-body">
+      <h6 className="card-text">{full_name}</h6>
+      <p className="card-text">Rover Name: {name}</p>
+    </div>
   </div>
+
 )
 
 const App = () => {
@@ -54,9 +59,14 @@ const App = () => {
       <div className="jumbotron">
         <h1 className="display-4">NASA Curiosity Mars Rover Images</h1>
       </div>
-      {data.photos.map(photo => (
-        <Photo key={photo.id} photo={photo} />
-      ))}
+      <div className="row">
+        <div className="col">
+          {data.photos.map(photo => (
+            <Photo key={photo.id} photo={photo} />
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 }
